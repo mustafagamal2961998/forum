@@ -3,5 +3,7 @@
     "login":"Login",
     "register":"Register",
     "today":"Today",
-    "SearchPlaceholder":"Search..."
+    "SearchPlaceholder":"Search...",
+    "home_header_message":"if you guest and you want to join us",
+    "here_message":"click here"
 }

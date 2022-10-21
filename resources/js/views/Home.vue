@@ -12,11 +12,14 @@
              <div class="home-content-header-container">
                  <div class="home-content-header-content">
                      <h3 class="home-content-header-text">
-                       <img class="logo" src="../../assets/Media/icons/logo.svg"> {{$t('logo')}}
+                       <img class="logo" src="../../assets/Media/icons/logo.svg"> {{$t('logo')}} =>
                      </h3>
+                     <h5 class="home-content-header-message">
+                         {{$t('home_header_message')}}  <router-link to="">{{$t('here_message')}}</router-link>
+                     </h5>
                  </div>
              </div>
-            
+
             </div>
         </div>
     </div>
@@ -105,5 +108,9 @@ export default {
 .home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-text .logo{
     width: 25px;
 }
-
+.home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-message{
+    color: silver;
+    width: 50%;
+    padding: 0 10px;
+}
 </style>
