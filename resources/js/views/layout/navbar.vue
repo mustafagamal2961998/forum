@@ -3,7 +3,7 @@
         <div class="navbar-container">
             <div class="navbar-content">
                 <div class="navbar">
-                    
+
                     <div v-if="!token" class="guest">
                             <!-- START BOTTOM BOX -->
                          <ul class="navbar-list-item">
@@ -12,11 +12,11 @@
                                     {{$t('today')}}
                                 </li>
                                 <li class="navbar-item">
-                                    <img class="icon" src="../../../assets/Media/icons/register.svg"> 
+                                    <img class="icon" src="../../../assets/Media/icons/register.svg">
                                     {{$t('register')}}
                                 </li>
                                 <li class="navbar-item">
-                                    <img class="icon" src="../../../assets/Media/icons/login.svg"> 
+                                    <img class="icon" src="../../../assets/Media/icons/login.svg">
                                     {{$t('login')}}
                                 </li>
                         </ul>
@@ -33,25 +33,25 @@
                         <!-- START LOGO BOX -->
                         <ul class="navbar-list-item-logo">
                             <li class="navbar-item">
-                                <img class="logo" src="../../../assets/Media/icons/logo.svg"> 
+                                <img class="logo" src="../../../assets/Media/icons/logo.svg">
                             </li>
                         </ul>
                     </div>
-                
+
                 </div>
             </div>
         </div>
     </nav>
-    
+
 </template>
-    
+
 <script>
 
     export default {
 
         data() {
             return {
-                token:localStorage.getItem('token'),  
+                token:localStorage.getItem('token'),
             }
         },
 
@@ -109,7 +109,7 @@
     border-radius: 5px;
     cursor: pointer;
  }
- 
+
  nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item .icon{
     width: 25px;
  }
@@ -161,12 +161,123 @@ nav .navbar-container .navbar-content .navbar .guest .search-form-box-list-item 
     margin: 0 10px;
     cursor: pointer;
  }
- 
+
  nav .navbar-container .navbar-content .navbar .guest .navbar-list-item-logo .navbar-item .icon{
     width: 30px;
  }
  nav .navbar-container .navbar-content .navbar .guest .navbar-list-item-logo .navbar-item .logo{
     width: 50px;
  }
-</style>   
-    
+
+/* START NAVBAR RESPONSIVE */
+
+ @media screen and (max-width: 1520px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item{
+         padding: 10px 5px;
+         margin: 0 5px;
+         font-size: 15px;
+     }
+ }
+ @media screen and (max-width: 1250px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item{
+         padding: 10px 2px;
+         margin: 0 5px;
+         font-size: 12px;
+     }
+ }
+ @media screen and (max-width: 1028px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item{
+         padding: 10px 2px;
+         margin: 0 5px;
+         font-size: 12px;
+     }
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item .icon{
+         width: 20px;
+     }
+ }
+
+ @media screen and (max-width: 988px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item{
+         padding: 8px 2px;
+         margin: 0 4px;
+         font-size: 11px;
+     }
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item .icon{
+         width: 15px;
+     }
+ }
+ @media screen and (max-width: 864px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item-logo{
+         width: 0%;
+     }
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item{
+        width: 50%;
+     }
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item{
+         padding: 8px 15px;
+         margin: 0 4px;
+         font-size: 11px;
+     }
+ }
+
+ @media screen and (max-width: 738px) {
+     nav .navbar-container .navbar-content .navbar .guest .search-form-box-list-item .search-form-box-item{
+         display: none;
+     }
+
+ }
+
+
+
+ @media screen and (max-width: 732px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item{
+         padding: 8px 10px;
+         margin: 0 4px;
+         font-size: 11px;
+     }
+ }
+
+ @media screen and (max-width: 672px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item{
+         padding: 8px 5px;
+         margin: 0 4px;
+         font-size: 11px;
+     }
+ }
+ @media screen and (max-width: 612px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item{
+         width: 80%;
+     }
+ }
+ @media screen and (max-width: 454px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item{
+         width: 100%;
+     }
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item-logo .navbar-item{
+         margin: 0 0;
+     }
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item-logo .navbar-item .logo{
+         width: 30px;
+     }
+ }
+ @media screen and (max-width: 428px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item{
+         width: 100%;
+     }
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item-logo .navbar-item{
+         margin: 0 0;
+     }
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item-logo .navbar-item .logo{
+         width: 30px;
+     }
+ }
+
+ @media screen and (max-width: 428px) {
+     nav .navbar-container .navbar-content .navbar .guest .navbar-list-item .navbar-item{
+         padding: 8px 4px;
+         margin: 0 2px;
+         font-size: 9px;
+     }
+ }
+
+</style>

@@ -5,5 +5,10 @@
     "today":"Today",
     "SearchPlaceholder":"Search...",
     "home_header_message":"if you guest and you want to join us",
-    "here_message":"click here"
+    "here_message":"click here",
+
+    "for_advertise": "To advertise here at the lowest prices and daily follow-up",
+    "depart_management":"If you have experience in managing a section of the forum, contact us",
+    "important_text": "Important",
+    "for_signup": "terms and conditions for registration in the forum"
 }

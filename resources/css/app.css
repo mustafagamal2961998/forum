@@ -1,6 +1,8 @@
 /* IMPORT FONTS */
-
-  
+@font-face {
+    font-family: 'Droid';
+    src: url("resources/assets/Fonts/Droid.Arabic.Kufi.ttf");
+}
 /* GLOBAL PROPERIES */
 
 /* ALL ELMMENTS STYLE */
@@ -9,10 +11,13 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-    font-family:system-ui,sans-serif;
+    font-family: 'Droid', sans-serif;
+    text-decoration: none;
+
+
 }
 /* BODY STYLE */
 body{
-    
+
     background-color: #1A1A2E;
 }
