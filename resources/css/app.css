@@ -1,0 +1,18 @@
+/* IMPORT FONTS */
+
+  
+/* GLOBAL PROPERIES */
+
+/* ALL ELMMENTS STYLE */
+
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family:system-ui,sans-serif;
+}
+/* BODY STYLE */
+body{
+    
+    background-color: #1A1A2E;
+}
