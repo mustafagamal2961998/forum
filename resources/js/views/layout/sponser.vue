@@ -48,10 +48,14 @@
 </script>
 <style scoped>
 .sponser-container{
-    width: 80%;
+    width: 90%;
     margin: auto;
     height: 400px;
     margin-top: 50px;
+    background-color: #232342;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 4px 10px #232342;
 }
 .sponser-container .sponser-content{
     width: 100%;
