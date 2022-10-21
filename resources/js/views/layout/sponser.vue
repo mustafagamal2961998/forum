@@ -49,13 +49,13 @@
 <style scoped>
 .sponser-container{
     width: 90%;
-    margin: auto;
+    margin: 30px auto;
     height: 400px;
-    margin-top: 50px;
-    background-color: #232342;
+    background-color: #0d172f;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 1px 4px 10px #232342;
+    border:1px solid #0F3460;
+    box-shadow: 1px 2px 10px #0d172f;
 }
 .sponser-container .sponser-content{
     width: 100%;
