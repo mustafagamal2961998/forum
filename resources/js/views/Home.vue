@@ -8,9 +8,9 @@
         <div class="home-content-choose-container">
             <div class="home-content-choose-content">
                 <div class="home-content-choose">
-                    <h4 class="home-content-choose-head-title">
+                    <div class="home-content-choose-head-title">
                         مواضيع تهمك
-                    </h4>
+                    </div>
                     <div class="home-content-choose-text">
                         <router-link to="">
                             <img class="home-content-choose-icon" src="../../assets/Media/icons/logo.svg">
@@ -33,7 +33,6 @@
                 </div>
             </div>
         </div>
-
         <div class="home-content-content">
             <div class="home-content">
 
@@ -41,12 +40,12 @@
              <!-- START HOME CONTENT HEADER -->
              <div class="home-content-header-container">
                  <div class="home-content-header-content">
-                     <h3 class="home-content-header-text">
+                     <div class="home-content-header-text">
                        <img class="logo" src="../../assets/Media/icons/logo.svg"> {{$t('logo')}} :
-                     </h3>
-                     <h5 class="home-content-header-message">
+                     </div>
+                     <div class="home-content-header-message">
                          .:: {{$t('home_header_message')}}  <router-link to="">{{$t('here_message')}}</router-link> ::.
-                     </h5>
+                     </div>
                  </div>
              </div>
 
@@ -100,7 +99,6 @@ export default {
 <style scoped>
 .home-content-container{
     width: 95%;
-    height: 50px;
     margin: auto;
 }
 /*START HOME CHOOSE STYLE */
@@ -181,7 +179,7 @@ export default {
 }
 .home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content{
    width: 100%;
-   height: 100%;
+   height: 40px;
    display: flex;
    align-items: center;
    align-content: center;

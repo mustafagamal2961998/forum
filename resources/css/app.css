@@ -12,12 +12,12 @@
     padding: 0px;
     margin: 0px;
     font-family: 'Droid', sans-serif;
-    text-decoration: none;
+    text-decoration: none !important;
 
 
 }
 /* BODY STYLE */
 body{
 
-    background-color: #1A1A2E;
+    background-color: #1A1A2E !important;
 }

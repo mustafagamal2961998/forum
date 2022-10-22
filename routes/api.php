@@ -1,11 +1,9 @@
 <?php
 
-use App\Events\NotificationEvent;
-use App\Events\NotificationRecived;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Guest\GuestController;
-use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\DepartmentController;
 use App\Models\User;
 
 /*
@@ -24,16 +22,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //====================================================//
-// Guest route`s
-    Route::post('userLogin',[GuestController::class,'userLogin']);
-    Route::post('userJoin',[GuestController::class,'userJoin']);
+    // Departments Controller Get route`s
 
-    
-    // Route::post('saveuser',[GuestController::class,'saveUser']);
-    // Route::post('emailverify',[GuestController::class,'emailverify']);
-    // return event(new NotificationRecived('test Echo Socket'));
+  Route::get('departments', [DepartmentController::class,'GetDepartments']);
 
+//
 //====================================================//
+
+
+
+
+
 
 
 //====================================================//
@@ -42,7 +41,7 @@ Route::middleware('auth:api')->group(function () {
 
 
     // User post route
-   
+
     // User get route
 
 

@@ -8,7 +8,8 @@ import router from "./router";
 import store from "./store";
 import { i18nVue } from 'laravel-vue-i18n'
 import style from '../css/app.css'
-
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap"
 
 
 
