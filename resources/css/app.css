@@ -1,7 +1,7 @@
 /* IMPORT FONTS */
 @font-face {
     font-family: 'Droid';
-    src: url("resources/assets/Fonts/Droid.Arabic.Kufi.ttf");
+    src: url("../resources/assets/Fonts/Droid.Arabic.Kufi.ttf");
 }
 /* GLOBAL PROPERIES */
 
@@ -9,15 +9,37 @@
 
 *{
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     font-family: 'Droid', sans-serif;
     text-decoration: none !important;
-
 
 }
 /* BODY STYLE */
 body{
-
     background-color: #1A1A2E !important;
+}
+
+.pagination{
+    width: 100%;
+    background-color: #0d172f;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px;
+}
+.page-item a {
+    padding: 5px 10px;
+    font-size: 12px;
+    margin: 0 5px;
+    background-color: #0d172f;
+    border-radius: 10px;
+    color: orange;
+    border: 1px solid #0F3460;
+}
+.page-item.active .page-link{
+    background-color: #0d172f;
+    color: orange;
+    border-radius: 10px;
+    border:1px solid orange;
+
 }

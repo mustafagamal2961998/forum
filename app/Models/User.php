@@ -28,14 +28,16 @@ class User extends Authenticatable implements JWTSubject
         'email_verify',
         'email_verify_code',
         'online',
-        
+
     ];
 
 
-    // START RELASHTION SHIP
-        
-    // END RELASHTION SHIP
+    // START RELATIONSHIPS
+     public function topics(){
+        return $this->hasMany(Topic::class);
+     }
 
+    // END RELATIONSHIPS
 
 
     /**

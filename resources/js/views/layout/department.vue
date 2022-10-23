@@ -32,7 +32,7 @@
 
                             <tr v-for="Name in Title.departments" :key="Name.id">
                                 <td class="department-name">
-                                    <router-link to="">
+                                    <router-link :to="{path:'/display/'+Name.id}">
                                         <img class="icon" src="../../../assets/Media/icons/department/department_name.svg" alt="Icon">  {{Name.department_name}}
                                     </router-link>
                                     <br>

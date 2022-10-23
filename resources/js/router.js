@@ -4,26 +4,23 @@ import {createRouter,createWebHistory} from "vue-router";
 // User Components
 import Home from "./views/Home.vue";
 import store from "./store";
-import test from "./views/test.vue"
+import Display from "./views/display.vue"
 
 const routes = [
     {
         path:'/', // Url route
         name:'Home',
         component:Home, // Component name
-        meta:{
-            isGuest:true
-        },
+        // meta:{
+        //     isGuest:true
+        // },
     },
     {
-        path:'/test', // Url route
-        name:'test',
-        component:test, // Component name
-        meta:{
-            isGuest:true
-        },
+        path:'/display/:id', // Url route
+        name:'dest',
+        component:Display, // Component name
     },
-    
+
 ];
 
 const router = createRouter({
@@ -35,6 +32,7 @@ const router = createRouter({
 
 router.beforeEach((toRoute, fromRoute, next) => {
      window.document.title = `${import.meta.env.VITE_APP_TITLE} - ${toRoute.name}`;
+
      next();
 });
 

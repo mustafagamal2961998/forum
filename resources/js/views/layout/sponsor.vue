@@ -5,7 +5,7 @@
                 <div class="sponsor">
                     <!-- START LEFT sponsor -->
                     <div class="left-sponsor-content">
-                        <router-link to="/test1">
+                        <router-link to="">
 
                             <div class="middle-sponsor-content-image">
                                 <img  class="left-sponsor-banner" src="https://images.wallpaperscraft.com/image/single/tree_light_dark_82372_1920x1080.jpg">
@@ -19,7 +19,7 @@
                     </div>
                     <!-- START MIDDLE sponsor -->
                     <div class="middle-sponsor-content">
-                            <router-link to="/test1">
+                            <router-link to="">
                                <div class="middle-sponsor-content-image">
                                    <img  class="middle-sponsor-banner" src="https://images.wallpaperscraft.com/image/single/tree_light_dark_82372_1920x1080.jpg">
 <!--                                       <span class="sponsor-text">-->
@@ -28,7 +28,7 @@
 <!--                                        </span>-->
                                </div>
                             </router-link>
-                            <router-link to="/test2">
+                            <router-link to="">
                                 <div class="middle-sponsor-content-image">
                                     <img  class="middle-sponsor-banner" src="https://images.wallpaperscraft.com/image/single/tree_light_dark_82372_1920x1080.jpg">
 <!--                                    <span class="sponsor-text">-->
@@ -37,7 +37,7 @@
 <!--                                    </span>-->
                                 </div>
                             </router-link>
-                            <router-link to="/test3">
+                            <router-link to="">
                                 <div class="middle-sponsor-content-image">
                                     <img  class="middle-sponsor-banner" src="https://images.wallpaperscraft.com/image/single/tree_light_dark_82372_1920x1080.jpg">
 <!--                                    <span class="sponsor-text">-->
@@ -46,7 +46,7 @@
 <!--                                            </span>-->
                                 </div>
                             </router-link>
-                            <router-link to="/test4">
+                            <router-link to="">
                                 <div class="middle-sponsor-content-image">
                                     <img  class="middle-sponsor-banner" src="https://images.wallpaperscraft.com/image/single/tree_light_dark_82372_1920x1080.jpg">
 <!--                                    <span class="sponsor-text">-->

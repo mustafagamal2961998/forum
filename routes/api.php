@@ -4,6 +4,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\TopicController;
+
 use App\Models\User;
 
 /*
@@ -23,8 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //====================================================//
     // Departments Controller Get route`s
-
   Route::get('departments', [DepartmentController::class,'GetDepartments']);
+  Route::get('topic/{id}', [TopicController::class,'GetTopic']);
 
 //
 //====================================================//

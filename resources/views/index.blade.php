@@ -65,7 +65,7 @@
         {{--#####################################--}}
 
         {{-- END INCLUDE CSS FILES--}} -->
-
+            <title>d</title>
         @vite('resources/js/app.js')
     </head>
 

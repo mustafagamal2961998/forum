@@ -33,7 +33,9 @@
                         <!-- START LOGO BOX -->
                         <ul class="navbar-list-item-logo">
                             <li class="navbar-item">
-                                <img class="logo" src="../../../assets/Media/icons/logo.svg">
+                              <router-link to="/">
+                                  <img class="logo" src="../../../assets/Media/icons/logo.svg">
+                              </router-link>
                             </li>
                         </ul>
                     </div>
@@ -80,7 +82,7 @@
  }
  nav .navbar-container .navbar-content .navbar .guest {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     display: flex;
     justify-content: space-between;
     align-items: center;

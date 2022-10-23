@@ -37,17 +37,19 @@
             <div class="home-content">
 
 
-             <!-- START HOME CONTENT HEADER -->
-             <div class="home-content-header-container">
-                 <div class="home-content-header-content">
-                     <div class="home-content-header-text">
-                       <img class="logo" src="../../assets/Media/icons/logo.svg"> {{$t('logo')}} :
-                     </div>
-                     <div class="home-content-header-message">
-                         .:: {{$t('home_header_message')}}  <router-link to="">{{$t('here_message')}}</router-link> ::.
+                 <!-- START HOME CONTENT HEADER -->
+                 <div class="home-content-header-container">
+                     <div class="home-content-header-content">
+                         <div class="home-content-header-text">
+                           <img class="logo" src="../../assets/Media/icons/logo.svg"> {{$t('logo')}} :
+                         </div>
+                         <div class="home-content-header-message">
+                             .:: {{$t('home_header_message')}}  <router-link to="">{{$t('here_message')}}</router-link> ::.
+                         </div>
                      </div>
                  </div>
-             </div>
+
+
 
             </div>
         </div>
