@@ -15,7 +15,14 @@
     "by":"بواسطة",
 
 
-
+    "ratetext":"تقيم الموضوع من 1 الي 5",
     "previous": "السابق",
-    "next": "التالي"
+    "next": "التالي",
+
+
+    "username_placeholder": "اسم المستخدم",
+    "password_placeholder": "كلمة المرور",
+    "button_text":"تسجيل الدخول",
+    "forgot_password": "إستعادة كلمة المرور"
+
 }

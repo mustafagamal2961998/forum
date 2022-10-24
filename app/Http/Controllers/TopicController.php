@@ -12,8 +12,7 @@ class TopicController extends Controller
     public function GetTopic(Request $request){
 
         $DepartmentName = Department::select()->where('id',$request->id)->with('TitleDepartment')->first();
-        $AllTopicsByDepartmentId= Topic::select()->where('department_id',$request->id)->with('user')->paginate(1);
-
+        $AllTopicsByDepartmentId= Topic::select()->where('department_id',$request->id)->with('user','comments.user')->paginate(1);
         return response()->json(['AllTopicDataByDepartment'=>$AllTopicsByDepartmentId,'DepartmentName'=>$DepartmentName]);
 
     }

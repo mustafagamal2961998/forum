@@ -36,7 +36,9 @@ class User extends Authenticatable implements JWTSubject
      public function topics(){
         return $this->hasMany(Topic::class);
      }
-
+    public function comments(){
+        return $this->hasMany(Comment::class,'topic_id');
+    }
     // END RELATIONSHIPS
 
 

@@ -15,7 +15,14 @@
     "for_signup": "terms and conditions for registration in the forum",
     "by":"By",
 
-
+    "ratetext":"Rate the topic from 1 to 5",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+
+    "username_placeholder": "Username",
+    "password_placeholder": "Password",
+    "button_text":"Login",
+    "forgot_password": "Forgot password"
+
+
 }
