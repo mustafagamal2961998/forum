@@ -211,10 +211,6 @@ export default {
 
 
 /*START HOME RESPONSIVE */
-
-
-
-
 @media screen and (max-width: 669px) {
     .home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-text{
        font-size: 14px;
@@ -254,4 +250,10 @@ export default {
     }
 }
 
+
+@media screen and (max-width: 784px) {
+    .home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-message{
+        font-size: 10px;
+    }
+}
 </style>

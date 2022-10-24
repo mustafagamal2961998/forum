@@ -2,6 +2,61 @@
     <!-- START NAVBAR -->
     <navbar></navbar>
     <sponsor></sponsor>
+
+    <!-- START HOME CONTENT -->
+    <div class="home-content-container">
+        <!-- START HOME CHOOSE CONTENT -->
+        <div class="home-content-choose-container">
+            <div class="home-content-choose-content">
+                <div class="home-content-choose">
+                    <div class="home-content-choose-head-title">
+                        مواضيع تهمك
+                    </div>
+                    <div class="home-content-choose-text">
+                        <router-link to="">
+                            <img class="home-content-choose-icon" src="../../assets/Media/icons/logo.svg">
+                            {{$t('for_advertise')}}
+                        </router-link>
+                    </div>
+                    <div class="home-content-choose-text">
+                        <router-link to="">
+                            <img class="home-content-choose-icon" src="../../assets/Media/icons/logo.svg">
+                            {{$t('depart_management')}}
+                        </router-link>
+                    </div>
+                    <div class="home-content-choose-text">
+                        <router-link to="">
+                            <img class="home-content-choose-icon" src="../../assets/Media/icons/logo.svg">
+                            <span> {{$t('important_text')}} : </span>  {{$t('for_signup')}}
+                        </router-link>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="home-content-content">
+            <div class="home-content">
+
+
+                <!-- START HOME CONTENT HEADER -->
+                <div class="home-content-header-container">
+                    <div class="home-content-header-content">
+                        <div class="home-content-header-text">
+                            <img class="logo" src="../../assets/Media/icons/logo.svg"> {{$t('logo')}} :
+                        </div>
+                        <div class="home-content-header-message">
+                            .:: {{$t('home_header_message')}}  <router-link to="">{{$t('here_message')}}</router-link> ::.
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
     <!-- START topic -->
     <div class="topic-container">
         <div class="topic-content">
@@ -11,7 +66,6 @@
                 <div class="topic-head">
                     <div class="topic-table-content">
                         <div class="department-title">
-                            <img class="icon" src="../../assets/Media/icons/logo.svg">
 
                             {{$t('logo')}} ::.
                             {{this.DepartmentTitle}}
@@ -23,13 +77,13 @@
 
 
                             <thead>
+                                <tr>
 
-                            <tr>
-                                <th class="forum">الموضوع / كاتب الموضوع</th>
-                                <th class="topics">تقيم الموضوع </th>
-                                <th class="posts">عدد التعليقات </th>
-                                <th class="last-comment">آخر تعليق</th>
-                            </tr>
+                                    <th class="forum">الموضوع / كاتب الموضوع</th>
+                                    <th class="topics">تقيم الموضوع </th>
+                                    <th class="last-comment">آخر تعليق</th>
+                                    <th class="posts">عدد التعليقات </th>
+                                </tr>
                             </thead>
 
                             <tbody>
@@ -57,32 +111,46 @@
 
                                 <td>
                                     <div class="topic-rate">
-                                        <img class="icon" src="../../assets/Media/icons/topic/ratestar.svg" alt="Icon">
-                                        <img class="icon" src="../../assets/Media/icons/topic/ratestar.svg" alt="Icon">
-                                        <img class="icon" src="../../assets/Media/icons/topic/ratestar.svg" alt="Icon">
-                                        <img class="icon" src="../../assets/Media/icons/topic/ratestar.svg" alt="Icon">
-                                        <img class="icon" src="../../assets/Media/icons/topic/ratestar.svg" alt="Icon">
+
+                                            <img class="icon" src="../../assets/Media/icons/topic/ratestar.svg" alt="Icon">
+                                            <img data-title="hello" class="icon" src="../../assets/Media/icons/topic/ratestar.svg" alt="Icon">
+                                            <img data-title="hello" class="icon" src="../../assets/Media/icons/topic/ratestar.svg" alt="Icon">
+                                            <img data-title="hello" class="icon" src="../../assets/Media/icons/topic/ratestar.svg" alt="Icon">
+                                            <img data-title="hello" class="icon" src="../../assets/Media/icons/topic/ratestar.svg" alt="Icon">
+
+                                        <span>{{$t('ratetext')}}</span>
+
                                     </div>
                                 </td>
 
-                                <td>
+
+                                <td class="last-comment-avatar">
+
+                                    <div v-for="data in TopicDepartmentName.comments.splice(-1)">
+
+                                        <img class="avatar" :src="data.user.avatar" alt="Icon">
+
+                                        <span>
+                                            {{data.user.first_name + ' ' + data.user.last_name}}
+                                          <br>
+                                          <small> 10/22/2022 - 07:14 AM</small>
+                                      </span>
+                                    </div>
+                                </td>
+
+                                <td class="comment-count">
+
                                     <div>
+
                                         <img class="icon" src="../../assets/Media/icons/department/comment_count.svg" alt="Icon">
                                         <br>
                                         <small>
-                                            419
+                                            {{TopicDepartmentName.comments.length}}
                                         </small>
                                     </div>
                                 </td>
 
-                                <td class="last-comment-avatar">
-                                    <div>
-                                        <img class="avatar" src="../../assets/Media/icons/department/test_avatar.svg" alt="Icon">
-                                        Mustafa Gamal
-                                        <br>
-                                        <small>10/22/2022 - 07:14 AM</small>
-                                    </div>
-                                </td>
+
 
 
                             </tr>
@@ -172,12 +240,11 @@ export default {
             // //Get All topics
             return axiosClient.get(`topic/`+ this.id + `?page=${page}`).then(response => {
                 this.Topics = response.data.AllTopicDataByDepartment;
-                // this.DepartmentData = response.data.DepartmentName;
+
                 this.DepartmentName = response.data.DepartmentName.department_name;
                 // console.log(response.data.DepartmentName.department_name)
                 this.DepartmentTitle= response.data.DepartmentName.title_department.department_title;
-                // this.TopicsUserData.push(response.data.AllUserDataByTopicsAndtopic)
-                //  console.log(response.data.AllTopicDataByDepartment)
+
                 return response;
             });
         }
@@ -189,6 +256,28 @@ export default {
 
 
 <style scoped>
+.topic-rate{
+   position: relative;
+   text-align: center;
+}
+
+.topic-rate span{
+    position: absolute;
+    top: 20px;
+    left: 15%;
+    font-size: 10px;
+    color: orange;
+    background-color: #0F3460;
+    padding: 2px 10px;
+    display: none;
+    border-radius: 5px;
+}
+.topic-rate:hover span{
+    display: block;
+}
+
+
+
 
 /* START topic STYLE */
 .topic-container{
@@ -257,13 +346,6 @@ export default {
 }
 
 /*START topic NAME*/
-
-.topic-container .topic-content .topic .topic-head .topic-table-content .topic-table .topic-table-head-title{
-    background-color: #082241;
-    color: #ffffff;
-    font-size: 14px;
-    padding: 5px;
-}
 .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table .avatar{
     width: 40px;
     height: 40px;
@@ -271,9 +353,7 @@ export default {
     object-fit: cover;
     border: 2px solid orange;
 }
-.topic-container .topic-content .topic .topic-head .topic-table-content .topic-table .topic-table-head-title .icon{
-    width: 20px;
-}
+
 .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table .topic-rate .icon{
     width: 20px;
 }
@@ -292,13 +372,30 @@ export default {
 .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar{
     color: #ffffff;
     font-weight: bold;
+
+}
+.topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar div span{
+    text-align: justify;
+    font-size: 12px;
+    padding: 0 5px;
+}
+.topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar div small{
+    font-size: 10px;
 }
 .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar small{
     font-weight: normal;
     font-size: 11px;
 }
 .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar .avatar{
-    width: 40px;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
     border-radius: 50px;
     border:3px solid orange;
 
@@ -349,167 +446,296 @@ export default {
     width: 20px;
 }
 
-/*.topic-container .topic-content .topic .topic-head .topic-table{*/
-/*    width: 100%;*/
-/*    border-top-left-radius: 5px;*/
-/*    border-top-right-radius: 5px;*/
-/*}*/
-
-
-/*!* START TABLE HEAD*!*/
-
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-table-thead{*/
-/*    width: 100%;*/
-/*    background-color: #0F3460;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table td{*/
-/*    border-bottom:2px solid #0F3460;*/
-/*}*/
-
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-table-thead tr th{*/
-/*    color: #ffffff;*/
-/*    font-size: 13px;*/
-/*    font-weight: normal;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-table-thead tr th.forum{*/
-/*    width: 70%;*/
-/*    text-align: justify;*/
-/*    padding: 0 10px;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody .topic-title-text{*/
-/*    width: 100%;*/
-/*    background-color: #0F3460;*/
-/*    clip-path: polygon(0 0, 100% 0%, 100% 100%, 5% 100%);*/
-/*    color: #ffffff;*/
-/*    padding: 5px 10px;*/
-/*    font-size: 12px;*/
-/*    text-align: justify;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-title-text .icon{*/
-/*    width: 20px;*/
-/*    vertical-align: middle;*/
-/*}*/
-/*!*START topicS TABLE STYLE*!*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody{*/
-/*    width: 100%;*/
-/*}*/
-
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr td{*/
-/*    text-align: center;*/
-/*    height: 50px;*/
-/*    padding: 10px 0;*/
-/*}*/
-
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-name{*/
-/*    position: relative;*/
-/*    width: 70%;*/
-/*    font-weight: 600;*/
-/*    font-size: 14px;*/
-/*    text-align: justify;*/
-/*    padding: 0 5px;*/
-/*}*/
-
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-name a{*/
-/*    color: #ffffff;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    align-content: center;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-name a::after{*/
-/*    position: absolute;*/
-/*    content: '';*/
-/*    top: 25px;*/
-/*    margin: 0 5px;*/
-/*    width: 5px;*/
-/*    height: 10px;*/
-/*    !*border: 1px solid silver;*!*/
-/*   border-top: 1px solid #0d172f;*/
-/*   border-left: 1px solid #0d172f;*/
-/*   border-right: 1px solid orange;*/
-/*   border-bottom: 1px solid orange;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-name .topic-description{*/
-/*  position: absolute;*/
-/*  top: 25px;*/
-/*  right: -15px;*/
-/*  padding: 0 35px;*/
-/*  color: orange;*/
-/*  font-weight:400;*/
-/*  font-size: 11px;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-topic-count{*/
-/*    position: relative;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-topic-count .topic-description{*/
-/*    position: absolute;*/
-/*    width: 100%;*/
-/*    right: 0;*/
-/*    top: 40px;*/
-/*    padding: 0 35px;*/
-/*    color: orange;*/
-/*    font-weight:400;*/
-/*    font-size: 11px;*/
-/*}*/
-
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-comment-count{*/
-/*    position: relative;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-comment-count .topic-description{*/
-/*    position: absolute;*/
-/*    width: 100%;*/
-/*    right: 0;*/
-/*    top: 40px;*/
-/*    padding: 0 35px;*/
-/*    color: orange;*/
-/*    font-weight:400;*/
-/*    font-size: 11px;*/
-/*}*/
-
-
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-name a:hover{*/
-/*    transition: 0.5s;*/
-/*    color: #d2d2d2;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-name .icon{*/
-/*    width: 15px;*/
-/*    margin: 0 0 0 4px;*/
-/*}*/
-/*.topic-topic-count .icon,.topic-comment-count .icon{*/
-/*    width: 30px;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-last-comment{*/
-/*    position: relative;*/
-/*    text-align: justify;*/
-/*    padding: 0 10px;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-last-comment span{*/
-/*    color: orange;*/
-/*    font-size: 14px;*/
-/*    font-weight: normal;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-last-comment a{*/
-/*    font-weight: bold;*/
-/*    color: #ffffff;*/
-
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-last-comment .avatar{*/
-/*    width: 35px;*/
-/*    vertical-align: middle;*/
-/*    border: 2px solid orange;*/
-/*    padding: 2px;*/
-/*    border-radius: 50px;*/
-/*}*/
-/*.topic-container .topic-content .topic .topic-head .topic-table .topic-content-table-tbody tr .topic-last-comment .topic-last-comment-date{*/
-/*    font-size: 12px;*/
-/*    color: orange;*/
-/*    margin: 0 0;*/
-/*}*/
-
-/*START TABLE TITLE*/
 
 /*START topic RESPONSIVE */
-@media screen and (max-width: 669px) {
+@media screen and (max-width: 912px) {
+    .last-comment-avatar{
+        font-size: 13px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar .avatar{
+        width: 30px;
+        height: 30px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar small{
+        font-size: 10px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr td div small{
+        font-size: 11px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table .topic-rate .icon{
+        width: 13px;
+    }
+     tr td.comment-count .icon {
+        width: 20px !important;
+    }
+    .topic-rate span{
+        right: 0;
+        font-size: 9px;
+        padding: 2px 5px;
+        width: auto;
+    }
+}
+@media screen and (max-width: 758px) {
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table thead tr .forum{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 609px) {
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table thead tr .forum{
+        width: 40%;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr td div{
+        font-size: 10px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr td div span{
+        font-size: 8px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar small {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 609px) {
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table thead tr .forum{
+        font-size: 10px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table thead tr .topics{
+        font-size: 10px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table thead tr .posts{
+        font-size: 10px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table thead tr .last-comment{
+        font-size: 10px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody .topic-name{
+        font-size: 12px;
+        padding: 0 2px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table .avatar{
+        width: 30px;
+        height: 30px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody .topic-name small{
+        margin: 2px 21px;
+        font-size: 8px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody .topic-name a::after{
+        right: 10px;
+        bottom: 16px;
+        width: 8px;
+        height: 9px;
+    }
+}
+
+@media screen and (max-width: 443px) {
+
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table .topic-rate .icon{
+        width: 10px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr td div span{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 407px) {
+
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar .avatar{
+        width: 20px;
+        height: 20px;
+        border:1px solid orange;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar small{
+        font-size: 6px;
+    }
+}
+
+
+/*START GET FROM HOME */
+
+.home-content-container{
+    width: 95%;
+    margin: auto;
+}
+/*START HOME CHOOSE STYLE */
+.home-content-container .home-content-choose-container{
+    width: 100%;
+    margin: 0 auto 10px;
+}
+.home-content-container .home-content-choose-container .home-content-choose-content{
+    width: 100%;
+}
+.home-content-container .home-content-choose-container .home-content-choose-content{
+    width: 100%;
+}
+
+.home-content-container .home-content-choose-container .home-content-choose-content .home-content-choose{
+    width: 100%;
+    background-color: #0d172f;
+    border-radius: 10px;
+    padding: 0 0 10px;
+    border:1px solid #0F3460;
+}
+.home-content-container .home-content-choose-container .home-content-choose-content .home-content-choose .home-content-choose-head-title{
+    width: 100%;
+    padding: 5px;
+    background-color:#0F3460;
+    color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.home-content-container .home-content-choose-container .home-content-choose-content .home-content-choose .home-content-choose-text{
+    width: 100%;
+    padding: 0 10px;
+    color: orange;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.home-content-container .home-content-choose-container .home-content-choose-content .home-content-choose .home-content-choose-text span{
+    color: #ff0000;
+}
+.home-content-container .home-content-choose-container .home-content-choose-content .home-content-choose .home-content-choose-text a{
+    color: orange;
+}
+.home-content-container .home-content-choose-container .home-content-choose-content .home-content-choose .home-content-choose-text a:hover{
+    transition: 0.5s all;
+    color: #c98405;
+}
+.home-content-container .home-content-choose-container .home-content-choose-content .home-content-choose .home-content-choose-text .home-content-choose-icon{
+    width: 15px;
+}
+
+
+
+
+/*START HOME TOP CONTENT*/
+.home-content-container .home-content-content{
+    width: 100%;
+    height: 100%;
+}
+.home-content-container .home-content-content .home-content{
+    width: 100%;
+    height: 100%;
+    background-color: #0d172f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding-right: 20px;
+    border-radius: 5px;
+    border:1px solid #0F3460;
+    box-shadow: 1px 2px 10px #0d172f;
+}
+.home-content-container .home-content-content .home-content .home-content-header-container{
+    width: 100%;
+    height: 100%;
 
 }
+.home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-text{
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    font-weight: 400;
+}
+.home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-text .logo{
+    width: 25px;
+}
+.home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-message{
+    color: silver;
+    width: 50%;
+    padding: 0 10px;
+}
+.home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-message a{
+    color: orange;
+}
+.home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-message a:hover{
+    transition: 0.5s all;
+    color: #c98405;
+}
+
+
+/*START HOME RESPONSIVE */
+@media screen and (max-width: 784px) {
+    .home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-message{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 669px) {
+    .home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-text{
+        font-size: 14px;
+    }
+    .home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-message{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .home-content-container .home-content-content .home-content{
+        padding-right: 0;
+    }
+    .home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-text .logo{
+        width: 15px;
+    }
+    .home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-text{
+        display: none;
+    }
+    .home-content-container .home-content-content .home-content .home-content-header-container .home-content-header-content .home-content-header-message{
+        width: 100%;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 784px) {
+    .topic-container .topic-content .topic .topic-head .topic-table-content .department-title{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 478px) {
+    .home-content-container .home-content-choose-container .home-content-choose-content .home-content-choose .home-content-choose-text{
+        font-size: 10px;
+    }
+    .home-content-container .home-content-choose-container .home-content-choose-content .home-content-choose .home-content-choose-head-title{
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 451px) {
+
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table thead tr .last-comment
+    {
+        display: none;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 414px) {
+    .topic-container .topic-content .topic .topic-head .topic-table-content .department-title {
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 362px) {
+    .home-content-container .home-content-choose-container .home-content-choose-content .home-content-choose .home-content-choose-text{
+        font-size: 8px;
+    }
+    .topic-container .topic-content .topic .topic-head .topic-table-content .department-title {
+        font-size: 8px;
+    }
+}
+
+
+
+
 
 </style>

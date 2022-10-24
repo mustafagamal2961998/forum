@@ -18,7 +18,7 @@
                                     <th class="forum">المنتدى</th>
                                     <th class="topics">المواضيع </th>
                                     <th class="posts">التعليقات </th>
-                                    <th class="last-comment">آخر تعليق</th>
+                                    <th class="last-topic-author">آخر موضوع</th>
                                 </tr>
                         </thead>
 
@@ -31,6 +31,7 @@
                             </tr>
 
                             <tr v-for="Name in Title.departments" :key="Name.id">
+
                                 <td class="department-name">
                                     <router-link :to="{path:'/display/'+Name.id}">
                                         <img class="icon" src="../../../assets/Media/icons/department/department_name.svg" alt="Icon">  {{Name.department_name}}
@@ -41,37 +42,49 @@
                                     </small>
                                 </td>
 
-                                <td>
+                                <td  class="topic-count">
+
                                    <div>
                                         <img class="icon" src="../../../assets/Media/icons/department/topics_count.svg" alt="Icon">
                                            <br>
                                            <small>
-                                               34
+                                               {{Name.topics.length}}
                                            </small>
                                    </div>
                                 </td>
 
-                                <td>
+                                <td class="comment-count">
+
+
+
                                     <div>
                                         <img class="icon" src="../../../assets/Media/icons/department/comment_count.svg" alt="Icon">
                                         <br>
                                         <small>
-                                            419
+
+                                            22
                                         </small>
                                     </div>
                                 </td>
 
                                 <td class="last-comment-avatar">
                                     <div>
+
                                         <img class="avatar" src="../../../assets/Media/icons/department/test_avatar.svg" alt="Icon">
-                                        Mustafa Gamal
-                                        <br>
-                                        <small>10/22/2022 - 07:14 AM</small>
+                                        <span>
+                                            <small style="color: #ffffff;">{{$t('by')}} : </small>
+                                            {{Name.topics[0].user.first_name + ' ' + Name.topics[0].user.last_name}}
+
+                                          <br>
+                                           <small> 10/22/2022 - 07:14 AM</small>
+                                        </span>
+
                                     </div>
 
                                 </td>
 
                             </tr>
+
                         </tbody>
 
                     </table>
@@ -96,22 +109,32 @@ export default {
     data() {
         return {
             DepartmentTitles:[],
+            TopicCountd:[],
         }
     },
     created(){
         //Get All Departments
         return axiosClient.get('departments').then(response => {
              this.DepartmentTitles.push(response.data.ResponseData)
+            // this.Comments.push(response.data.test)
+
+            // response.data.ResponseData.map(function (test){
+            //     test.departments.map(function (fsdfds){
+            //        console.log(fsdfds.topics.length)
+            //     })
+            // })
+
             return response;
         });
 
 
 
+
     },
+    mounted() {
 
+    },
     computed:{
-        // ...mapState(['user','posts']),
-
 
     },
     methods:{
@@ -201,6 +224,24 @@ export default {
     color: #ffffff;
     font-weight: bold;
 }
+
+.department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar div span{
+    text-align: justify;
+    font-size: 12px;
+    padding: 0 5px;
+}
+.department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar div small{
+    font-size: 10px;
+}
+
+
 .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar small{
     font-weight: normal;
     font-size: 11px;
@@ -209,7 +250,6 @@ export default {
     width: 40px;
     border-radius: 50px;
     border:3px solid orange;
-
 }
 
 .department-container .department-content .department .department-head .department-table-content .department-table tbody tr td .icon{
@@ -415,8 +455,91 @@ export default {
 /*START TABLE TITLE*/
 
 /*START DEPARTMENT RESPONSIVE */
-@media screen and (max-width: 669px) {
-
+@media screen and (max-width: 703px) {
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr td .icon{
+        width: 20px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar .avatar{
+        width: 30px;
+        border:1px solid orange;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar{
+        font-size: 12px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .comment-count{
+        font-size: 12px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .topic-count{
+        font-size: 12px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr td .icon{
+        width: 15px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr td div small{
+        font-size: 10px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar .avatar{
+        width: 15px;
+    }
 }
+
+@media screen and (max-width: 598px) {
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr td .icon{
+        width: 20px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar .avatar{
+        width: 25px;
+        border:1px solid orange;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar{
+        font-size: 10px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar small{
+        font-size: 8px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table thead tr .forum{
+        width: 50%;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .department-name{
+        font-size: 12px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .department-name small{
+        font-size: 9px;
+        margin: 0 20px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody .department-name a::after{
+        right: 10px;
+        width: 15px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table thead tr .forum,
+    .department-container .department-content .department .department-head .department-table-content .department-table thead tr .topics,
+    .department-container .department-content .department .department-head .department-table-content .department-table thead tr .posts,
+    .department-container .department-content .department .department-head .department-table-content .department-table thead tr .last-topic-author
+    {
+        font-size: 12px;
+    }
+}
+
+
+
+@media screen and (max-width: 515px) {
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody .department-name a{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 451px) {
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody .department-name a{
+        font-size: 8px;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table thead tr .last-topic-author
+    {
+       display: none;
+    }
+    .department-container .department-content .department .department-head .department-table-content .department-table tbody tr .last-comment-avatar{
+        display: none;
+    }
+}
+
+
 
 </style>
