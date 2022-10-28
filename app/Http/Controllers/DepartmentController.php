@@ -11,11 +11,10 @@ class DepartmentController extends Controller
 {
     //Get All departments method
     public function GetDepartments(){
-        $GetAllDepartmentWithTitle =Title_department::with('departments.topics.user')->get();
 
+        $GetAllDepartmentWithTitle =Title_department::with('departments.topics.user','departments.DepartmentAdmin.user')->get();
 
          return response()->json(['ResponseData'=>$GetAllDepartmentWithTitle]);
-
 
 
     }

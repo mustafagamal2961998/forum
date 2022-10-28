@@ -23,6 +23,10 @@ class Department extends Model
     public function topics(){
         return $this->hasMany(Topic::class);
     }
+    public function DepartmentAdmin(){
+        return $this->hasOne(Department_admin::class);
+    }
+
 
 //    public function comments(){
 //        return $this->hasMany(Comment::class,'topic_id');
