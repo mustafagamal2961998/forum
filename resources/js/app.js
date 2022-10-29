@@ -25,8 +25,8 @@ import "bootstrap"
 //--------------//
 
 
-const dir = localStorage.getItem('Dir');
-document.documentElement.dir=dir;
+// const dir = localStorage.getItem('Dir');
+// document.documentElement.dir=dir;
 
 const app = createApp();
 

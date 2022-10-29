@@ -82,7 +82,7 @@ export default {
         // this.$store.dispatch('login').then(()=>{
         //     this.loadded=true;
         // });
-        localStorage.setItem('Dir','rtl');
+        // localStorage.setItem('Dir','rtl');
 
     },
 

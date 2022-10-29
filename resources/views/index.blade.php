@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl" lang="ar">
     <head>
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -65,7 +65,7 @@
         {{--#####################################--}}
 
         {{-- END INCLUDE CSS FILES--}} -->
-            <title>d</title>
+            <title>Diamond</title>
         @vite('resources/js/app.js')
     </head>
 

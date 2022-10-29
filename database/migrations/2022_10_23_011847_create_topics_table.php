@@ -18,9 +18,13 @@ return new class extends Migration
             $table->string('topic_title',255);
             $table->text('topic_content');
 
-            $table->foreignId('department_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-//            $table->timestamps();
+            $table->bigInteger('department_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+
+//            $table->foreignId('department_id')->constrained()->onDelete('cascade');
+//            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 

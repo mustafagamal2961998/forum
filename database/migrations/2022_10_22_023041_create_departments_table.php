@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('department_name',255);
             $table->string('department_description',255);
-            $table->foreignId('title_department_id')->constrained()->onDelete('cascade');
+            $table->bigInteger('title_department_id')->unsigned();
 
+//            $table->foreignId('title_department_id')->constrained()->onDelete('cascade');
 //            $table->timestamps();
         });
     }

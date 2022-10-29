@@ -97,7 +97,7 @@
                             <tr v-for="TopicDepartmentName in Topics.data" :key="TopicDepartmentName.id" >
                                 <td class="topic-name">
 
-                                    <router-link :to="{path:'/display/'+TopicDepartmentName.id}">
+                                    <router-link :to="{path:'/display/'+$route.params.id+'/'+TopicDepartmentName.id}">
                                         <img class="avatar" :src="TopicDepartmentName.user.avatar" alt="Icon">
                                         {{TopicDepartmentName.topic_title}}
                                     </router-link>
@@ -145,7 +145,7 @@
                                         <img class="icon" src="../../assets/Media/icons/department/comment_count.svg" alt="Icon">
                                         <br>
                                         <small>
-                                            {{TopicDepartmentName.comments.length}}
+                                            {{TopicDepartmentName}}
                                         </small>
                                     </div>
                                 </td>
@@ -383,7 +383,7 @@ export default {
 .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar div span{
     text-align: justify;
     font-size: 12px;
-    padding: 0 5px;
+    padding: 0 5px 0 0;
 }
 .topic-container .topic-content .topic .topic-head .topic-table-content .topic-table tbody tr .last-comment-avatar div small{
     font-size: 10px;
