@@ -11,7 +11,8 @@ class Department extends Model
     public $timestamps = false;
     public $fillable=[
         'department_name',
-        'department_description'
+        'department_description',
+        'title_department_id'
     ];
 
 

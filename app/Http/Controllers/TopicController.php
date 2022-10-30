@@ -15,7 +15,7 @@ class TopicController extends Controller
     public function GetTopic(Request $request){
 
         $DepartmentName = Department::select()->where('id',$request->id)->with('TitleDepartment')->first();
-        $AllTopicsByDepartmentId= Topic::orderBy('id', 'DESC')->select()->where('department_id',$request->id)->with('user','comments.user')->paginate(2);
+        $AllTopicsByDepartmentId= Topic::orderBy('id', 'DESC')->select()->where('department_id',$request->id)->with('user','comments.user')->paginate(10);
         return response()->json(['AllTopicDataByDepartment'=>$AllTopicsByDepartmentId,'DepartmentName'=>$DepartmentName]);
 
     }
@@ -43,6 +43,17 @@ class TopicController extends Controller
         ]);
 
         return response()->json(['data'=>$AddNewTopic]);
+    }
+
+
+    // Live search method
+    public function LiveSearch($query){
+         $LiveSearchOn = Topic::where('topic_title','like','%'.$query.'%')->get();
+         if ($LiveSearchOn){
+             return response()->json(['status'=>'success','Result'=>$LiveSearchOn]);
+         }
+
+
     }
 }
 

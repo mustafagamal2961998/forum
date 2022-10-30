@@ -14,6 +14,7 @@ class Admin extends Authenticatable implements JWTSubject
     use HasApiTokens, HasFactory, Notifiable;
 
     public $timestamps = false;
+    protected $guard = 'admin';
 
     protected $fillable = [
         'username',
